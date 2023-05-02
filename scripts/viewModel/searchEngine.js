@@ -7,7 +7,7 @@ import { BoyerMoore } from "../algorithms/boyer-moore.js";
 import { ReversedIndex } from "../algorithms/reversed-index.js";
 
 export const tagFilter = new Filter();
-ReversedIndex.createIndex(DataManager.data);
+// ReversedIndex.createIndex(DataManager.data);
 
 export const tagSearchInputsData = {
     ingredients: {
@@ -76,7 +76,7 @@ function getSearchResultsUsingCusomAlgorithm(data, userSearchText) {
     // });
 
     // Reversed Index
-    return ReversedIndex.search(DataManager.data, userSearchText);
+    // return ReversedIndex.search(DataManager.data, userSearchText);
 
 }
 
@@ -133,9 +133,9 @@ export function getRecipeListHTMLContent(recipeList) {
     const range = document.createRange();
     if (recipeList.length === 0) {
         return range.createContextualFragment(`
-            <div class="error"> 
+            <div class="error">
                 Aucune recette ne correspond à votre critère… <br>
-                vous pouvez chercher « tarte aux pommes », « poisson », etc. 
+                vous pouvez chercher « tarte aux pommes », « poisson », etc.
             </div>`);
     }
 
