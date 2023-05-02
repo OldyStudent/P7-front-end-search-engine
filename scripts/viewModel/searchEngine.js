@@ -7,7 +7,7 @@ import { BoyerMoore } from "../algorithms/boyer-moore.js";
 import { ReversedIndex } from "../algorithms/reversed-index.js";
 
 export const tagFilter = new Filter();
-ReversedIndex.createIndex(DataManager.data);
+// ReversedIndex.createIndex(DataManager.data);
 
 export const tagSearchInputsData = {
     ingredients: {
@@ -49,10 +49,10 @@ const recipeListElement = document.querySelector('#recipe-list');
 function getSearchResultsUsingCusomAlgorithm(data, userSearchText) {
 
     // NAIVE CHAR BY CHAR
-    return data.filter(recipe => {
-        const text = `${recipe.name} ${recipe.description} ${recipe.ingredients.map(ing => ing.ingredient).join(' ')}`.trim().toLowerCase();
-        return NaiveOldSearch.search(text, userSearchText)
-    });
+    // return data.filter(recipe => {
+    //     const text = `${recipe.name} ${recipe.description} ${recipe.ingredients.map(ing => ing.ingredient).join(' ')}`.trim().toLowerCase();
+    //     return NaiveOldSearch.search(text, userSearchText)
+    // });
 
 
     // NAIVE
@@ -70,13 +70,13 @@ function getSearchResultsUsingCusomAlgorithm(data, userSearchText) {
     // });
 
     // BoyerMoore
-    // return data.filter(recipe => {
-    //     const text = `${recipe.name} ${recipe.description} ${recipe.ingredients.map(ing => ing.ingredient).join(' ')}`.trim().toLowerCase();
-    //     return BoyerMoore.search(text, userSearchText);
-    // });
+    return data.filter(recipe => {
+        const text = `${recipe.name} ${recipe.description} ${recipe.ingredients.map(ing => ing.ingredient).join(' ')}`.trim().toLowerCase();
+        return BoyerMoore.search(text, userSearchText);
+    });
 
     // Reversed Index
-    return ReversedIndex.search(DataManager.data, userSearchText);
+    // return ReversedIndex.search(DataManager.data, userSearchText);
 
 }
 
